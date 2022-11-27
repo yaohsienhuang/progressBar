@@ -1,5 +1,4 @@
 import time
-import sys
 from prettytable import PrettyTable
 
 class progressBar():
