@@ -10,7 +10,7 @@ class progressBar():
         
     def update(self,complete,total,bar_length = 20):
         self.total=total
-        self.progress=complete/total
+        self.progress=complete/total if (complete/total)>0 else 0 if (complete/total)<0 else 1 
         self.update_time=time.time()
         self.spend_time=self.update_time - self.start_time
         block = int(round(bar_length * self.progress))
