@@ -2,7 +2,6 @@ import time
 from prettytable import PrettyTable
 
 class progressBar():
-    fmt="\r{} = {:.1f}% [{}] {}/{} {:.1f}s FPS={:.1f}"
     def __init__(self,name):
         self.name=name
         self.start_time=time.time()
@@ -15,7 +14,7 @@ class progressBar():
         self.spend_time=self.update_time - self.start_time
         block = int(round(bar_length * self.progress))
         self.fps=float(complete/self.spend_time)
-        text=self.fmt.format(self.name,self.progress*100,"#"*block+"-"*(bar_length-block),complete,total,self.spend_time,self.fps)
+        text="\r{} = {:.1f}% [{}] {}/{} {:.1f}s FPS={:.1f}".format(self.name,self.progress*100,"#"*block+"-"*(bar_length-block),complete,total,self.spend_time,self.fps)
         print(text,end='')
     
     def end(self):
